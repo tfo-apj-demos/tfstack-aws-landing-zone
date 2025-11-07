@@ -11,16 +11,16 @@ identity_token "aws_team3" {
   audience = ["aws.workload.identity"]
 }
 
-# Access the 'stacks-examples' variable set to retrieve role_arn
+# Access the 'stacks-varset' variable set to retrieve role_arn
 store "varset" "stacks_config" {
-  name     = "stacks-examples"
+  name     = "stacks-varset"
   category = "terraform"
 }
 
 # Deployment group for both team deployments
 #deployment_group "dev_teams_auto" {}
 
-deployment "vpc-team1-simon-dev" {
+deployment "vpc-team1-dev" {
   #deployment_group = deployment_group.dev_teams_auto
 
   inputs = {
@@ -33,22 +33,22 @@ deployment "vpc-team1-simon-dev" {
     enable_nat_gateway = true
     enable_vpn_gateway = false
     environment        = "dev"
-    role_arn           = store.varset.stacks_config.role_arn
+    role_arn           = store.varset.stacks_varset.role_arn
     identity_token     = identity_token.aws_team1.jwt
   }
 
 }
 
 publish_output "vpc_id_team1" {
-  value = deployment.vpc-team1-simon-dev.vpc_id
+  value = deployment.vpc-team1-dev.vpc_id
 }
 
 publish_output "private_subnets_team1" {
-  value = deployment.vpc-team1-simon-dev.private_subnets
+  value = deployment.vpc-team1-dev.private_subnets
 }
 
 
-deployment "vpc-team2-jessica-dev" {
+deployment "vpc-team2-dev" {
   #   deployment_group = deployment_group.dev_teams_auto
 
   inputs = {
@@ -61,21 +61,21 @@ deployment "vpc-team2-jessica-dev" {
     enable_nat_gateway = true
     enable_vpn_gateway = false
     environment        = "dev"
-    role_arn           = store.varset.stacks_config.role_arn
+    role_arn           = store.varset.stacks_varset.role_arn
     identity_token     = identity_token.aws_team2.jwt
   }
 }
 
 publish_output "vpc_id_team2" {
-  value = deployment.vpc-team2-jessica-dev.vpc_id
+  value = deployment.vpc-team2-dev.vpc_id
 }
 
 publish_output "private_subnets_team2" {
-  value = deployment.vpc-team2-jessica-dev.private_subnets
+  value = deployment.vpc-team2-dev.private_subnets
 }
 
 
-deployment "vpc-team3-pranit-dev" {
+deployment "vpc-team3-dev" {
   #   deployment_group = deployment_group.dev_teams_auto
 
   inputs = {
@@ -88,16 +88,16 @@ deployment "vpc-team3-pranit-dev" {
     enable_nat_gateway = true
     enable_vpn_gateway = false
     environment        = "dev"
-    role_arn           = store.varset.stacks_config.role_arn
+    role_arn           = store.varset.stacks_varset.role_arn
     identity_token     = identity_token.aws_team3.jwt
   }
   # destroy = true
 }
 
 publish_output "vpc_id_team3" {
-  value = deployment.vpc-team3-pranit-dev.vpc_id
+  value = deployment.vpc-team3-dev.vpc_id
 }
 
 publish_output "private_subnets_team3" {
-  value = deployment.vpc-team3-pranit-dev.private_subnets
+  value = deployment.vpc-team3-dev.private_subnets
 }
