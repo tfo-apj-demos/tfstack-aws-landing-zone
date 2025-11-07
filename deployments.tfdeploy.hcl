@@ -37,7 +37,7 @@ deployment "vpc-team1-dev" {
     identity_token     = identity_token.aws_team1.jwt
   }
   
-  # destroy = true
+  destroy = true
 
 }
 
@@ -67,7 +67,7 @@ deployment "vpc-team2-dev" {
     identity_token     = identity_token.aws_team2.jwt
   }
 
-  # destroy = true
+  destroy = true
 }
 
 publish_output "vpc_id_team2" {
@@ -96,7 +96,7 @@ deployment "vpc-team3-dev" {
     identity_token     = identity_token.aws_team3.jwt
   }
 
-  # destroy = true
+  destroy = true
 }
 
 publish_output "vpc_id_team3" {
