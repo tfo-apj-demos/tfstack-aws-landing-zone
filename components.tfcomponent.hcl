@@ -1,6 +1,6 @@
 component "vpc" {
+  source  = "app.terraform.io/cloudbrokeraz/vpc/aws"
   #source  = "app.terraform.io/tfo-apj-demos/vpc/aws"
-  source  = "app.terraform.io/tfo-apj-demos/vpc/aws"
   version = "6.5.0"
 
   inputs = {
