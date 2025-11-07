@@ -37,7 +37,7 @@ deployment "vpc-team1-dev" {
     identity_token     = identity_token.aws_team1.jwt
   }
   
-  destroy = true
+  # destroy = true
 
 }
 
