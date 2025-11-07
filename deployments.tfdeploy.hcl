@@ -33,7 +33,7 @@ deployment "vpc-team1-dev" {
     enable_nat_gateway = true
     enable_vpn_gateway = false
     environment        = "dev"
-    role_arn           = store.varset.stacks.role_arn
+    role_arn           = store.varset.stacks_config.role_arn
     identity_token     = identity_token.aws_team1.jwt
   }
 
@@ -61,7 +61,7 @@ deployment "vpc-team2-dev" {
     enable_nat_gateway = true
     enable_vpn_gateway = false
     environment        = "dev"
-    role_arn           = store.varset.stacks.role_arn
+    role_arn           = store.varset.stacks_config.role_arn
     identity_token     = identity_token.aws_team2.jwt
   }
 }
@@ -88,7 +88,7 @@ deployment "vpc-team3-dev" {
     enable_nat_gateway = true
     enable_vpn_gateway = false
     environment        = "dev"
-    role_arn           = store.varset.stacks.role_arn
+    role_arn           = store.varset.stacks_config.role_arn
     identity_token     = identity_token.aws_team3.jwt
   }
   # destroy = true
