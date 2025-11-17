@@ -36,18 +36,16 @@ deployment "vpc-team1-dev" {
     role_arn           = store.varset.stacks_config.role_arn
     identity_token     = identity_token.aws_team1.jwt
   }
-  
-  # destroy = true
-
+  destroy = true
 }
 
-publish_output "vpc_id_team1" {
-  value = deployment.vpc-team1-dev.vpc_id
-}
+# publish_output "vpc_id_team1" {
+#   value = deployment.vpc-team1-dev.vpc_id
+# }
 
-publish_output "private_subnets_team1" {
-  value = deployment.vpc-team1-dev.private_subnets
-}
+# publish_output "private_subnets_team1" {
+#   value = deployment.vpc-team1-dev.private_subnets
+# }
 
 
 deployment "vpc-team2-dev" {
@@ -66,17 +64,16 @@ deployment "vpc-team2-dev" {
     role_arn           = store.varset.stacks_config.role_arn
     identity_token     = identity_token.aws_team2.jwt
   }
-
   # destroy = true
 }
 
-publish_output "vpc_id_team2" {
-  value = deployment.vpc-team2-dev.vpc_id
-}
+# publish_output "vpc_id_team2" {
+#   value = deployment.vpc-team2-dev.vpc_id
+# }
 
-publish_output "private_subnets_team2" {
-  value = deployment.vpc-team2-dev.private_subnets
-}
+# publish_output "private_subnets_team2" {
+#   value = deployment.vpc-team2-dev.private_subnets
+# }
 
 
 # deployment "vpc-team3-dev" {
