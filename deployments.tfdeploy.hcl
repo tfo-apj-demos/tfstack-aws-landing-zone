@@ -64,7 +64,7 @@ deployment "vpc-team2-dev" {
     role_arn           = store.varset.stacks_config.role_arn
     identity_token     = identity_token.aws_team2.jwt
   }
-  # destroy = true
+  destroy = true
 }
 
 # publish_output "vpc_id_team2" {
